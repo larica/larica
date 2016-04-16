@@ -39,7 +39,9 @@ defmodule Larica.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"},
-     {:excoveralls, "~> 0.4", only: :test}
+     {:excoveralls, "~> 0.4", only: :test},
+     {:dogma, "~> 0.1", only: :dev},
+     {:credo, "~> 0.3", only: [:dev, :test]}
     ]
   end
 
