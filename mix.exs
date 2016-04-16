@@ -41,7 +41,8 @@ defmodule Larica.Mixfile do
      {:cowboy, "~> 1.0"},
      {:excoveralls, "~> 0.4", only: :test},
      {:dogma, "~> 0.1", only: :dev},
-     {:credo, "~> 0.3", only: [:dev, :test]}
+     {:credo, "~> 0.3", only: [:dev, :test]},
+     {:mix_test_watch, "~> 0.2", only: :dev}
     ]
   end
 
