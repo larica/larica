@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/larica/larica.svg?branch=master)](https://travis-ci.org/larica/larica)
+[![Coverage Status](https://coveralls.io/repos/github/larica/larica/badge.svg?branch=master)](https://coveralls.io/github/larica/larica?branch=master)
 
 # Larica
 

@@ -9,6 +9,9 @@ addons:
 notifications:
   recipients:
     - pragmaticivan@gmail.com
+env:
+  - MIX_ENV=test
+script: mix coveralls.travis
 cache:
   directories:
     - _build
