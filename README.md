@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/larica/larica.svg?branch=master)](https://travis-ci.org/larica/larica)
+
 # Larica
 
 To start your Phoenix app:
