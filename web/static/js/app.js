@@ -21,4 +21,4 @@ import "phoenix_html"
 // import socket from "./socket"
 
 
-alert('webpack compiled me.');
+// alert('webpack compiled me.');

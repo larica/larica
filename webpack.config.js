@@ -1,59 +1,49 @@
-"use strict";
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var CopyWebpackPlugin = require("copy-webpack-plugin");
 
-var path = require("path");
+module.exports = {
+  devtool: "source-map",
+  entry: {
+    "app": ["./web/static/css/app.scss", "./web/static/js/app.js"],
+  },
 
-var ExtractTextPlugin = require("extract-text-webpack-plugin"),
-    webpack = require("webpack");
-
-// helpers for writing path names
-// e.g. join("web/static") => "/full/disk/path/to/hello/web/static"
-function join(dest) { return path.resolve(__dirname, dest); }
-function web(dest) { return join("web/static/" + dest); }
-
-var config = module.exports = {
-  // our app's entry points - for this example we'll use a single each for
-  // css and js
-  entry: [
-    web("css/app.scss"),
-    web("js/app.js")
-  ],
-
-  // where webpack should output our files
   output: {
-    path: join("priv/static"),
+    path: "./priv/static",
     filename: "js/app.js"
   },
 
-  // more information on how our modules are structured, and
-  //
-  // in this case, we'll define our loaders for JavaScript and CSS.
-  // we use regexes to tell Webpack what files require special treatment, and
-  // what patterns to exclude.
+  resolve: {
+    modulesDirectories: [ "node_modules", __dirname + "/web/static/js" ]
+  },
+
   module: {
     loaders: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: "babel"
+        loader: "babel",
+        query: {
+          presets: ['es2015']
+        }
+      }, {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract("style", "css")
       }, {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("style", "css!sass")
+        loader: ExtractTextPlugin.extract(
+          "style",
+          "css!sass?includePaths[]=" + __dirname +  "/node_modules"
+        )
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file?name=public/fonts/[name].[ext]'
       }
     ]
   },
 
-  // what plugins we'll be using - in this case, just our ExtractTextPlugin.
-  // we'll also tell the plugin where the final CSS file should be generated
-  // (relative to config.output.path)
   plugins: [
-    new ExtractTextPlugin("css/app.css")
+    new ExtractTextPlugin("css/app.css"),
+    new CopyWebpackPlugin([{ from: "./web/static/assets" }])
   ]
-};
-
-// if running webpack in production mode, minify files with uglifyjs
-if (process.env.NODE_ENV === "production") {
-  config.plugins.push(
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin({ minimize: true })
-  );
 }
