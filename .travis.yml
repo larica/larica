@@ -11,7 +11,7 @@ notifications:
     - pragmaticivan@gmail.com
 env:
   - MIX_ENV=test
-script: mix test --include integration
+script: mix coveralls.travis
 cache:
   directories:
     - _build
