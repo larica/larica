@@ -28,6 +28,10 @@ defmodule Larica.ModelCase do
   setup tags do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Larica.Repo)
 
+    unless tags[:async] do
+      Ecto.Adapters.SQL.Sandbox.mode(Larica.Repo, {:shared, self()})
+    end
+
     :ok
   end
 
