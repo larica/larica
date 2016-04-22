@@ -12,6 +12,14 @@ notifications:
 env:
   - MIX_ENV=test
 script: mix coveralls.travis
+deploy:
+  provider: heroku
+  api_key:
+    secure: 4s44Qy6jkwmZkOzNvQmiLJbq4QMzogLuoQ3hsRT6I4nKXMLBBWjZFXK9f8no8d1V8SOfiZDSvjuKlSj2+6IW/D3KPpvdnjk4S2OeOvdjn/qKHpGXr2r4d15E3ruQXgabax636wAdIH18ilY/WP5hybWStTlXFcL+n7Qhxk9LqGdj9stsR1NJN8E1baQntFrh2/+pYkc15XQpgaYd46UM5AXPbNJQTfKimOQgWdKQZxyeqruZ+SCBzab06c2Uset4v57pH4CaztQ3PBOdG+eA6wtE6ANHz044RK55eGL7DDiI5JJrJA3o4dEi8kKr1C5KKNQe2ugxCfNmGo60GIYgo527K+6NVJzIPazTyY+m+i5yt2lfYm1wsZuaI3IJ3enbGHcHbYlIWL4zULMlWLR2oIMzF4GrFSYX8TVY8ADeleZ5fZ0ll/IKlXoXWnarUdGwuQNv4SjMUGAQxWTSXVS3GRy0wkeiYY3bzDpUQpTFiXTzZrsJLPGKuTC87XNI0LFfbGXY8pIb/5TvDXYahKiQZpQwJCj1iycr2xpewMw9VaDPf7s7Zhg6B8hPKQS4J+i3rlIP5BHWxv9QYZwVkUZfcljcWTjcQ1KZ4ABH3O2/Ej5dSBFP+oWBbn01qxfkfQifX078XDgyefOKjOru37GTZKi92kc0lNn3ckgu8GREECM=
+  app: laricaclub
+  on:
+    repo: larica/larica
+    branch: master
 # cache:
 #   directories:
 #     - _build
