@@ -14,6 +14,8 @@ config :larica, Larica.Endpoint,
   pubsub: [name: Larica.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+config :larica, ecto_repos: [Larica.Repo]
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

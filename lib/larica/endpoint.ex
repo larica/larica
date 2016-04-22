@@ -19,6 +19,10 @@ defmodule Larica.Endpoint do
     plug Phoenix.CodeReloader
   end
 
+  if Application.get_env(:larica, :sql_sandbox) do
+    plug Phoenix.Ecto.SQL.Sandbox
+  end
+
   plug Plug.RequestId
   plug Plug.Logger
 

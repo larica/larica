@@ -9,6 +9,8 @@ config :larica, Larica.Endpoint,
 # Print only warnings and errors during test
 config :logger, level: :warn
 
+config :larica, sql_sandbox: true
+
 # Configure your database
 config :larica, Larica.Repo,
   adapter: Ecto.Adapters.Postgres,

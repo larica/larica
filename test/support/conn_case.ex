@@ -33,10 +33,12 @@ defmodule Larica.ConnCase do
   end
 
   setup tags do
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Larica.Repo)
+
     unless tags[:async] do
-      Ecto.Adapters.SQL.restart_test_transaction(Larica.Repo, [])
+      Ecto.Adapters.SQL.Sandbox.mode(Larica.Repo, {:shared, self()})
     end
 
-    {:ok, conn: Phoenix.ConnTest.conn()}
+    :ok
   end
 end
