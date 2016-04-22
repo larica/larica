@@ -21,7 +21,7 @@ defmodule Larica.Mixfile do
   def application do
     [mod: {Larica, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :ex_machina]]
   end
 
   # Specifies which paths to compile per environment.
@@ -42,7 +42,9 @@ defmodule Larica.Mixfile do
      {:excoveralls, "~> 0.4", only: :test},
      {:dogma, "~> 0.1", only: :dev},
      {:credo, "~> 0.3", only: [:dev, :test]},
-     {:mix_test_watch, "~> 0.2", only: :dev}
+     {:mix_test_watch, "~> 0.2", only: :dev},
+     {:ex_machina, "~> 1.0.0-beta.1", github: "thoughtbot/ex_machina", only: :test},
+     {:faker, "~> 0.5", only: :test}
     ]
   end
 
