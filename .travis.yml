@@ -12,7 +12,7 @@ notifications:
 env:
   - MIX_ENV=test
 script: mix coveralls.travis
-cache:
-  directories:
-    - _build
-    - deps
+# cache:
+#   directories:
+#     - _build
+#     - deps
