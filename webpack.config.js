@@ -25,10 +25,12 @@ module.exports = {
         query: {
           presets: ['es2015']
         }
-      }, {
+      }, 
+      {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract("style", "css")
-      }, {
+      }, 
+      {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract(
           "style",
