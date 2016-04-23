@@ -43,8 +43,10 @@ defmodule Larica.Mixfile do
      {:dogma, "~> 0.1", only: :dev},
      {:credo, "~> 0.3", only: [:dev, :test]},
      {:mix_test_watch, "~> 0.2", only: :dev},
-     {:ex_machina, "~> 1.0.0-beta.1", github: "thoughtbot/ex_machina", only: :test},
-     {:faker, "~> 0.5", only: :test}
+     {:ex_machina, "~> 1.0.0-beta.1", github: "thoughtbot/ex_machina"},
+     {:faker, "~> 0.5", only: :test},
+     {:corsica, "~> 0.4"},
+     {:remodel, "~> 0.0.1"}
     ]
   end
 

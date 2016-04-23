@@ -19,6 +19,11 @@ defmodule Larica.Router do
     get "/", PageController, :index
   end
 
+  scope "/api/v1", as: :api_v1 do
+    pipe_through :api 
+    resources "/recipes", Larica.API.V1.RecipeController, except: [:delete]
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", Larica do
   #   pipe_through :api

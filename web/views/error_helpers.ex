@@ -27,9 +27,9 @@ defmodule Larica.ErrorHelpers do
     #     dngettext "errors", "1 file", "%{count} files", count
     #
     if count = opts[:count] do
-      Gettext.dngettext(<%= application_module %>.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(Larica.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(<%= application_module %>.Gettext, "errors", msg, opts)
+      Gettext.dgettext(Larica.Gettext, "errors", msg, opts)
     end
   end
 

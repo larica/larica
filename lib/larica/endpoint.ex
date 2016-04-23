@@ -39,5 +39,7 @@ defmodule Larica.Endpoint do
     key: "_larica_key",
     signing_salt: "MO65bUld"
 
+  plug Corsica, origins: "*"
+  
   plug Larica.Router
 end

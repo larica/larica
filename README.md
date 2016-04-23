@@ -21,3 +21,40 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   * Docs: http://hexdocs.pm/phoenix
   * Mailing list: http://groups.google.com/group/phoenix-talk
   * Source: https://github.com/phoenixframework/phoenix
+
+
+
+
+
+schema "recipes" do
+	field :name, :string
+	field :preparation_time, :integer
+	field :portions, :integer
+	field :microwave, :boolean, default: false
+	field :state, :string
+
+	timestamps
+end
+
+schema "ingredients" do
+	field :name, :string
+	field :metrics, :string
+
+	timestamps
+end
+
+schema "recipe_ingredients" do
+	belongs_to :recipe, Larica.Recipe
+	belongs_to :ingredient, Larica.Ingredient
+
+	timestamps
+end
+
+schema "users" do
+	field :name, :string
+	field :email, :string
+	field :state, :string
+	field :password_token, :string
+	
+	timestamps
+end
