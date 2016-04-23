@@ -1,8 +1,8 @@
 defmodule Larica.Api.V1.RecipeRequestTest do
 
   use Larica.ConnCase
-
   alias Larica.Recipe
+  import Larica.Factory
 
   setup do
     :ok
@@ -18,11 +18,7 @@ defmodule Larica.Api.V1.RecipeRequestTest do
   end
 
   test "GET /api/v1/recipes returns a list of recipes" do
-    recipe =
-      %Recipe{name: "Farofa", preparation_time: 10, portions: 2, microwave: :true, state: "active"}
-      |> Larica.Repo.insert
-
-    {:ok, recipe} = recipe
+    recipe = insert(:recipe)
 
     conn = get conn(), "/api/v1/recipes"
 
