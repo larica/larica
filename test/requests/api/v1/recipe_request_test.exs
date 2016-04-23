@@ -1,4 +1,4 @@
-defmodule Larica.Api.V1.RecipeControllerTest do
+defmodule Larica.Api.V1.RecipeRequestTest do
 
   use Larica.ConnCase
 
@@ -12,7 +12,7 @@ defmodule Larica.Api.V1.RecipeControllerTest do
     conn = get conn(), "/api/v1/recipes"
 
     assert conn.status == 200
-    target_recipe = json_response(conn, 200) 
+    target_recipe = json_response(conn, 200)
 
     assert target_recipe ==  []
   end
