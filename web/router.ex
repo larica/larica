@@ -26,8 +26,4 @@ defmodule Larica.Router do
     end
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Larica do
-  #   pipe_through :api
-  # end
 end
