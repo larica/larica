@@ -11,7 +11,8 @@ defmodule Larica.Mixfile do
      start_permanent: Mix.env == :prod,
      aliases: aliases,
      deps: deps,
-     test_coverage: [tool: ExCoveralls]
+     test_coverage: [tool: ExCoveralls, test_task: "espec"],
+     preferred_cli_env: [espec: :test]
     ]
   end
 
@@ -46,7 +47,8 @@ defmodule Larica.Mixfile do
      {:ex_machina, "~> 1.0.0-beta.1", github: "thoughtbot/ex_machina"},
      {:faker, "~> 0.5", only: :test},
      {:corsica, "~> 0.4"},
-     {:remodel, "~> 0.0.1"}
+     {:remodel, "~> 0.0.1"},
+     {:espec_phoenix, github: "antonmi/espec_phoenix", only: :test, app: false}
     ]
   end
 
@@ -59,6 +61,6 @@ defmodule Larica.Mixfile do
   defp aliases do
     ["ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
      "ecto.reset": ["ecto.drop", "ecto.setup"],
-     "test": ["ecto.create --quiet", "ecto.migrate", "test --trace"]]
+     "test": ["ecto.create --quiet", "ecto.migrate", "espec --trace"]]
   end
 end
